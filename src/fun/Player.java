@@ -22,6 +22,21 @@ public class Player
 		shuffleAll();
 	}
 	
+	public Row getR1()
+	{
+		return r1;
+	}
+
+	public Row getR2()
+	{
+		return r2;
+	}
+
+	public Row getR3()
+	{
+		return r3;
+	}
+
 	private void shuffle(Row r)
 	{
 		Random rand = new Random();
