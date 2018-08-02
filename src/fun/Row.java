@@ -21,7 +21,7 @@ public class Row
 		for(int i = 0; i < nums.length; i++)
 		{
 			int randomNum = randomGenerator.nextInt(10);
-			if(randomNum > 6) // 30% chance
+			if(randomNum > 6) // 40% chance
 			{
 				nums[i] = 1;
 			}
@@ -30,6 +30,22 @@ public class Row
 				nums[i] = 0;
 			}
 		}
+	}
+	
+	/**
+	 * Adds two rows together
+	 * @return Row sum of both rows
+     */
+	public static Row addTo(Row r1, Row r2)
+	{
+		Row r3 = new Row();
+		
+		for(int i = 0; i < r1.nums.length; i++)
+		{
+			r3.nums[i] = (byte) (r1.nums[i] + r2.nums[i]);
+		}
+		
+		return r3;
 	}
 	
 	/**
