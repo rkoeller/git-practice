@@ -21,7 +21,7 @@ public class Row
 		for(int i = 0; i < nums.length; i++)
 		{
 			int randomNum = randomGenerator.nextInt(10);
-			if(randomNum > 6) // 40% chance
+			if(randomNum > 5) // 40% chance
 			{
 				nums[i] = 1;
 			}
