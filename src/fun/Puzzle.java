@@ -29,6 +29,10 @@ public class Puzzle
 		
 		Player p1 = new Player(row1, row2, row3);
 		p1.print();
-		System.out.println(p1.getPlayerSolution());
+
+		p1.shiftRowRight((byte) 1);
+		p1.shiftRowRight((byte) 2);
+		p1.shiftRowLeft((byte) 3);
+		p1.print();
 	}
 }
