@@ -1,13 +1,12 @@
 package fun;
 
+import java.lang.StringBuffer;
+import java.util.Random;
+
 /**
  * Row.java
  * @author Ryan Koeller
  */
-
-import java.lang.StringBuffer;
-import java.util.Random;
-
 public class Row
 {
 	private byte[] nums = new byte[10];
