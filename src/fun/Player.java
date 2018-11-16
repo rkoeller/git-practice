@@ -1,17 +1,17 @@
 package fun;
 
+import java.util.Random;
+
 /**
  * Player.java
  * @author Ryan Koeller
  */
-
-import java.util.Random;;
-
 public class Player
 {
 	private Row r1;
 	private Row r2;
 	private Row r3;
+	private Row playerSolution;
 	
 	Player(Row r1, Row r2, Row r3)
 	{
@@ -20,6 +20,7 @@ public class Player
 		this.r3 = r3;
 		
 		shuffleAll();
+		updatePlayerSolution();
 	}
 	
 	public Row getR1()
@@ -37,11 +38,18 @@ public class Player
 		return r3;
 	}
 
+	public Row getPlayerSolution()
+	{
+		return playerSolution;
+	}
+
 	private void shuffle(Row r)
 	{
 		Random rand = new Random();
 		byte temp;
+
 		// rand.nextInt(max - min + 1) + min
+		// move row to the right 1 - 9 (inclusive) times
 		for(int i = 0; i < rand.nextInt(9 - 1 + 1) + 1; i++)
 		{
 			temp = r.getRow()[r.getRowLength() - 1];
@@ -59,6 +67,11 @@ public class Player
 		shuffle(r2);
 		shuffle(r3);
 	}
+
+	private void updatePlayerSolution()
+	{
+		playerSolution = Row.addTo(Row.addTo(r1, r2), r3);
+	}
 	
 	public void print()
 	{
@@ -67,4 +80,10 @@ public class Player
 		System.out.println(r2);
 		System.out.println(r3);
 	}
+
+	/*
+	 * todo add player controls
+	 * todo player shift left
+	 * todo player shift right
+	 */
 }

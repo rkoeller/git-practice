@@ -1,12 +1,11 @@
 package fun;
 
+import java.util.Random;
+
 /**
  * Puzzle.java
  * @author Ryan Koeller
  */
-
-import java.util.Random;
-
 public class Puzzle
 {
 	/**
@@ -29,6 +28,7 @@ public class Puzzle
 		System.out.println();
 		
 		Player p1 = new Player(row1, row2, row3);
-		p1.print();		
+		p1.print();
+		System.out.println(p1.getPlayerSolution());
 	}
 }
