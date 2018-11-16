@@ -176,10 +176,4 @@ public class Player
 		System.out.println(r2);
 		System.out.println(r3);
 	}
-
-	/*
-	 * todo add player controls
-	 * todo player shift left
-	 * todo player shift right
-	 */
 }
