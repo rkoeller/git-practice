@@ -13,13 +13,10 @@ public class Puzzle
      */
 	public static void main(String[] args)
 	{
-		Random randomGenerator = new Random();
 		Row row1 = new Row();
 		Row row2 = new Row();
 		Row row3 = new Row();
-		row1.randomize(randomGenerator);
-		row2.randomize(randomGenerator);
-		row3.randomize(randomGenerator);
+
 		System.out.println(row1);
 		System.out.println(row2);
 		System.out.println(row3);
@@ -29,6 +26,10 @@ public class Puzzle
 		
 		Player p1 = new Player(row1, row2, row3);
 		p1.print();
-		System.out.println(p1.getPlayerSolution());
+
+		p1.shiftRowRight(1);
+		p1.shiftRowRight( 2);
+		p1.shiftRowLeft(3);
+		p1.print();
 	}
 }

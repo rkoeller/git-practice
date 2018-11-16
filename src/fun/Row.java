@@ -1,6 +1,7 @@
 package fun;
 
 import java.lang.StringBuffer;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -13,16 +14,26 @@ public class Row
 
 	public Row()
 	{
+		randomize();
+	}
 
+	public Row(byte[] nums)
+	{
+		if (nums.length == this.nums.length)
+		{
+			for(int i = 0; i < nums.length; i++)
+			{
+				this.nums[i] = nums[i];
+			}
+		}
 	}
 
 	/**
 	 * Initializes nums with 1s and 0s
-	 * 
-	 * @param randomGenerator Random object used to create random numbers
 	 */
-	public void randomize(Random randomGenerator)
+	private void randomize()
 	{
+		Random randomGenerator = new Random();
 		for (int i = 0; i < nums.length; i++)
 		{
 			int randomNum = randomGenerator.nextInt(10);
@@ -50,6 +61,21 @@ public class Row
 	public int getRowLength()
 	{
 		return nums.length;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Row row = (Row) o;
+		return Arrays.equals(nums, row.nums);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Arrays.hashCode(nums);
 	}
 
 	/**
