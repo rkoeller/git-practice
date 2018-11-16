@@ -12,6 +12,7 @@ public class Player
 	private Row r2;
 	private Row r3;
 	private Row playerSolution;
+	private static final int DEBUG = 1;
 	
 	Player(Row r1, Row r2, Row r3)
 	{
@@ -66,6 +67,70 @@ public class Player
 		shuffle(r1);
 		shuffle(r2);
 		shuffle(r3);
+	}
+
+	public void shiftRowRight(byte rowNum)
+	{
+		if (DEBUG == 1) System.out.println("Shifting row " + rowNum + " right.");
+		if(rowNum == 1)
+		{
+			shiftRowRight(r1);
+		}
+		else if(rowNum == 2)
+		{
+			shiftRowRight(r2);
+		}
+		else if(rowNum == 3)
+		{
+			shiftRowRight(r3);
+		}
+		else
+		{
+			System.out.println("Row does not exist: " + rowNum);
+		}
+		updatePlayerSolution();
+	}
+
+	private void shiftRowRight(Row r)
+	{
+		byte temp = r.getRow()[r.getRowLength() - 1];
+		for(int i = r.getRowLength() - 1; i > 0; i--)
+		{
+			r.getRow()[i] = r.getRow()[i -1];
+		}
+		r.getRow()[0] = temp;
+	}
+
+	public void shiftRowLeft(byte rowNum)
+	{
+		if (DEBUG == 1) System.out.println("Shifting row " + rowNum + " left.");
+		if(rowNum == 1)
+		{
+			shiftRowLeft(r1);
+		}
+		else if(rowNum == 2)
+		{
+			shiftRowLeft(r2);
+		}
+		else if(rowNum == 3)
+		{
+			shiftRowLeft(r3);
+		}
+		else
+		{
+			System.out.println("Row does not exist: " + rowNum);
+		}
+		updatePlayerSolution();
+	}
+
+	private void shiftRowLeft(Row r)
+	{
+		byte temp = r.getRow()[0];
+		for(int i = 0; i < r.getRowLength() - 1; i++)
+		{
+			r.getRow()[i] = r.getRow()[i + 1];
+		}
+		r.getRow()[r.getRowLength() - 1] = temp;
 	}
 
 	private void updatePlayerSolution()
