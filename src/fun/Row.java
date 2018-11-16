@@ -1,8 +1,9 @@
+package fun;
+
 /**
  * Row.java
  * @author Ryan Koeller
  */
-package fun;
 
 import java.lang.StringBuffer;
 import java.util.Random;
@@ -34,6 +35,22 @@ public class Row
 				nums[i] = 0;
 			}
 		}
+	}
+	
+	/**
+	 * @return nums array
+	 */
+	public byte[] getRow()
+	{
+		return nums;
+	}
+	
+	/**
+	 * @return length of nums
+	 */
+	public int getRowLength()
+	{
+		return nums.length;
 	}
 
 	/**
