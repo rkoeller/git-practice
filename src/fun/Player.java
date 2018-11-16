@@ -1,5 +1,6 @@
 package fun;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -14,7 +15,7 @@ public class Player
 	private Row playerSolution;
 	private static final int DEBUG = 1;
 	
-	Player(Row r1, Row r2, Row r3)
+	public Player(Row r1, Row r2, Row r3)
 	{
 		this.r1 = r1;
 		this.r2 = r2;
@@ -23,7 +24,37 @@ public class Player
 		shuffleAll();
 		updatePlayerSolution();
 	}
-	
+
+	public Player(Row r1, Row r2, Row r3, boolean noShuffle)
+	{
+		this.r1 = r1;
+		this.r2 = r2;
+		this.r3 = r3;
+		if(!noShuffle)
+		{
+			shuffleAll();
+		}
+		updatePlayerSolution();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Player player = (Player) o;
+		return Objects.equals(r1, player.r1) &&
+				Objects.equals(r2, player.r2) &&
+				Objects.equals(r3, player.r3) &&
+				Objects.equals(playerSolution, player.playerSolution);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(r1, r2, r3, playerSolution);
+	}
+
 	public Row getR1()
 	{
 		return r1;
@@ -69,7 +100,7 @@ public class Player
 		shuffle(r3);
 	}
 
-	public void shiftRowRight(byte rowNum)
+	public void shiftRowRight(int rowNum)
 	{
 		if (DEBUG == 1) System.out.println("Shifting row " + rowNum + " right.");
 		if(rowNum == 1)
@@ -101,7 +132,7 @@ public class Player
 		r.getRow()[0] = temp;
 	}
 
-	public void shiftRowLeft(byte rowNum)
+	public void shiftRowLeft(int rowNum)
 	{
 		if (DEBUG == 1) System.out.println("Shifting row " + rowNum + " left.");
 		if(rowNum == 1)
