@@ -17,6 +17,15 @@ public class Row
 		randomize();
 	}
 
+	public Row(Row row)
+	{
+		nums = row.nums;
+	}
+
+	/**
+	 * Row constructor that copies a byte array of length 10
+	 * @param nums byte array to be copied
+	 */
 	public Row(byte[] nums)
 	{
 		if (nums.length == this.nums.length)
@@ -110,7 +119,7 @@ public class Row
 	}
 
 	/**
-	 * @return nums represented as a string
+	 * @return newString represented as a string
 	 */
 	public String toString()
 	{
